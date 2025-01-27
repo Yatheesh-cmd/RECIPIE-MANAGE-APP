@@ -1,0 +1,43 @@
+*{
+  padding:0px;
+  margin:opx;
+  box-sizing: border-box;
+}
+.s1{
+   background: linear-gradient(to right,rgb(245, 0, 130),rgb(0, 0, 0)); 
+  
+}
+.b1{
+  background: linear-gradient(to right, #ff0015, #0613ff);
+  font-size: 20px;
+}
+.s2{
+  font-size: 30px;;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+ 
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; 
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  word-wrap: break-word; 
+}
+
+th {
+  width: auto; 
+}
+
+img {
+  max-width: 100px; 
+  height: auto;
+  display: block;
+} 
+
+
+
+
