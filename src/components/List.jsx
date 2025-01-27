@@ -34,43 +34,42 @@ function List({ success }) {
   };
 
   return (
-    <>
+    <div className="container mt-4">
       {recipeList.length > 0 ? (
-        <table className="table table-bordered border-5 shadow border-light text-light">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Ingredients</th>
-              <th>Image</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {recipeList.map((item) => (
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.title}</td>
-                <td>{item.ingredients}</td>
-                <td>
-                  <img src={item.image} height="200px" width="290px" alt={item.title} />
-                </td>
-                <td>
-                  <Edit recipe={item} onEditSuccess={getData} />
-                  <button onClick={() => deleteRecipe(item.id)} className="btn btn-danger">
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="row g-4">
+          {recipeList.map((item) => (
+            <div key={item.id} className="col-md-4">
+              <div className="card text-light bg-dark shadow">
+                <img
+                  src={item.image}
+                  className="card-img-top"
+                  alt={item.title}
+                  style={{ height: "200px", objectFit: "cover" }}
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{item.title}</h5>
+                  <p className="card-text">
+                    <strong>Ingredients:</strong> {item.ingredients}
+                  </p>
+                  <div className="d-flex justify-content-between">
+                    <Edit recipe={item} onEditSuccess={getData} />
+                    <button
+                      onClick={() => deleteRecipe(item.id)}
+                      className="btn btn-danger"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       ) : (
-        <h3>No recipes added</h3>
+        <h3 className="text-center">No recipes added</h3>
       )}
-    </>
+    </div>
   );
 }
 
 export default List;
-
