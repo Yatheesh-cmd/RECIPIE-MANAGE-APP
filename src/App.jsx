@@ -12,7 +12,7 @@ function App() {
            Recipe Management
         </a>
       </nav>
-      <div className="container-fluid" style={{ minHeight: "100vh",  backgroundColor: "black" }}>
+      <div className="container-fluid" style={{ minHeight: "100vh",  backgroundColor: "white" }}>
         <Add val={setSuccess} />
         <List success={success} />
       </div>

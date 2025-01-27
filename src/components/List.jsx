@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Card, Button } from "react-bootstrap";
 import { getRecipesApi, deleteRecipeApi } from "../server/allApi";
 import Edit from "./Edit";
 
@@ -39,29 +40,34 @@ function List({ success }) {
         <div className="row g-4">
           {recipeList.map((item) => (
             <div key={item.id} className="col-md-4">
-              <div className="card text-light bg-dark shadow">
-                <img
-                  src={item.image}
-                  className="card-img-top"
-                  alt={item.title}
-                  style={{ height: "200px", objectFit: "cover" }}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{item.title}</h5>
-                  <p className="card-text">
+              <Card style={{ width: "18rem" }} className="shadow">
+                {/* Custom div for full-cover image */}
+                <div
+                  style={{
+                    height: "200px",
+                    backgroundImage: `url(${item.image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    borderTopLeftRadius: "0.375rem", // Match Bootstrap card radius
+                    borderTopRightRadius: "0.375rem",
+                  }}
+                ></div>
+                <Card.Body>
+                  <Card.Title>{item.title}</Card.Title>
+                  <Card.Text>
                     <strong>Ingredients:</strong> {item.ingredients}
-                  </p>
+                  </Card.Text>
                   <div className="d-flex justify-content-between">
                     <Edit recipe={item} onEditSuccess={getData} />
-                    <button
+                    <Button
+                      variant="danger"
                       onClick={() => deleteRecipe(item.id)}
-                      className="btn btn-danger"
                     >
                       Delete
-                    </button>
+                    </Button>
                   </div>
-                </div>
-              </div>
+                </Card.Body>
+              </Card>
             </div>
           ))}
         </div>
@@ -73,3 +79,5 @@ function List({ success }) {
 }
 
 export default List;
+
+
