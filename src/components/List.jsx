@@ -40,7 +40,7 @@ function List({ success }) {
         <div className="row g-4">
           {recipeList.map((item) => (
             <div key={item.id} className="col-md-4">
-              <Card style={{ width: "18rem" }} className="shadow">
+              <Card style={{ width: "20rem" }} className="shadow">
                 {/* Custom div for full-cover image */}
                 <div
                   style={{
